@@ -2,6 +2,7 @@
 id: project-profile
 kind: project
 status: active
+description: Standing project profile naming the writable surfaces, validation profile, and context policy that bound every objective.
 scope: []
 evidence: []
 supersedes: []
@@ -15,7 +16,7 @@ The prose in this file is explanatory; machine-read declarations use typed fence
 
 ```handler:identity
 {
-  "repository_identity": "handler-publication-acceptance"
+  "repository_identity": "seed"
 }
 ```
 
@@ -36,9 +37,7 @@ The prose in this file is explanatory; machine-read declarations use typed fence
 ```handler:forbidden
 {
   "globs": [
-    ".github/**",
-    ".handler/**",
-    "ci/**"
+    "secrets/**"
   ]
 }
 ```
@@ -46,23 +45,35 @@ The prose in this file is explanatory; machine-read declarations use typed fence
 ```handler:surface
 {
   "globs": [
-    "acceptance/**"
+    "src/**",
+    "docs/**"
   ],
   "level": "standard",
   "profile": {
     "commands": [
       {
         "argv": [
-          "sh",
-          "ci/check.sh"
+          "true"
         ],
         "expects": "exit_zero",
         "working_directory": ""
       }
     ],
-    "name": "acceptance-check",
-    "profile_id": "a4f41eb66b4f81dd26df019538ad32d3d544b2e089f86f99a609bc9d48f03828"
+    "name": "seed",
+    "profile_id": "c126011201dad09e87db523af6fae1a726753b3707854d54cfea14dc11d4615b"
   }
+}
+```
+
+```handler:claim
+{
+  "anchor_paths": [],
+  "as_of_commit": "commit",
+  "content_hash": "",
+  "declared_scope": "src",
+  "source_dossier": "",
+  "symbols": [],
+  "text": "seed-claim"
 }
 ```
 
@@ -72,7 +83,7 @@ The prose in this file is explanatory; machine-read declarations use typed fence
   "max_pack_bytes": 65536,
   "required_paths": [
     "project.md",
-    "decisions/acceptance-target.md"
+    "decisions/required.md"
   ]
 }
 ```
